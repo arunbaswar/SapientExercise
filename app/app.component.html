@@ -1,0 +1,45 @@
+<div class="toolbar" role="banner">
+  <h3>SpaceX Launch Programs</h3>
+  <div class="spacer"></div>
+</div>
+
+<div class="container" role="main">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <h5>Filters</h5>
+      <label> Launch Years</label>
+      <div class="row">
+        <div class="col-sm-6 launch-year-item" *ngFor="let year of launchYears">
+          <a class="launch-year" [ngClass]="{'selected': selectedYear===year}"
+            (click)="filterByLaunchYear(year)">{{year}}</a>
+        </div>
+      </div>
+      <label> Successful Launch</label>
+      <div class="row">
+        <div class="col-sm-6 launch-year-item">
+          <a class="launch-year" [ngClass]="{'selected': isSuccessfulLaunch===true}"
+            (click)="filterBySuccessfulLaunch(true)">True</a>
+        </div>
+        <div class="col-sm-6 launch-year-item">
+          <a class="launch-year" [ngClass]="{'selected': isSuccessfulLaunch===false}"
+          (click)="filterBySuccessfulLaunch(false)">False</a>
+        </div>
+      </div>
+      <label> Successful Landing</label>
+      <div class="row">
+        <div class="col-sm-6 launch-year-item">
+          <a class="launch-year">True</a>
+        </div>
+        <div class="col-sm-6 launch-year-item">
+          <a class="launch-year">False</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <app-program-list></app-program-list>
+    </div>
+  </div>
+
+</div>
+<router-outlet></router-outlet>
